@@ -1,11 +1,13 @@
 # Insect Acoustic Classification (ICT 4442 Mini Project)
+# Guys, isme changes honge baad mai:-)
 
-**Branch**: `saurabh`  
-**Author**: Saurabh Tiwari (230911238)
 
-Hey team, I've built the shared audio preprocessing pipeline, spectrogram extraction, augmentations, and the CNN baselines (VGG-style CNN and EfficientNetV2-S). 
+
+Bhai, I've built the shared audio preprocessing pipeline, spectrogram extraction, augmentations, and the CNN baselines (VGG-style CNN and EfficientNetV2-S). 
 
 Everything is modular so you can directly import the data loaders, feature extractors, and trainer for your own models (AST, CRNN, and MLP).
+Once dataset is ready, we can run that on it.
+
 
 ---
 
