@@ -1,0 +1,41 @@
+# Configuration for VGG-style Log-Mel CNN
+# Owned by: Saurabh Tiwari (230911238)
+
+experiment_name: "vgg_logmel_cnn_baseline"
+seed: 42
+
+audio:
+  sample_rate: 22050
+  chunk_duration: 5.0
+  n_fft: 1024
+  hop_length: 512
+  n_mels: 128
+  f_min: 0.0
+  f_max: 11025.0
+  in_channels: 1
+
+augmentation:
+  use_waveform_aug: true
+  time_shift_max_ratio: 0.2
+  noise_level: 0.005
+  use_specaugment: true
+  freq_mask_param: 16
+  time_mask_param: 32
+  num_freq_masks: 2
+  num_time_masks: 2
+
+model:
+  name: "LogMelCNN"
+  base_channels: 32
+  num_classes: 40
+  dropout_rate: 0.4
+  use_temperature: true
+
+training:
+  batch_size: 32
+  epochs: 20
+  lr: 0.001
+  weight_decay: 0.0001
+  scheduler: "cosine"  # "cosine" or "plateau"
+  early_stopping_patience: 6
+  checkpoint_dir: "checkpoints"

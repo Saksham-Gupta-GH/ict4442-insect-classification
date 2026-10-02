@@ -1,0 +1,40 @@
+# Configuration for EfficientNetV2-S Transfer Learning
+# Owned by: Saurabh Tiwari (230911238)
+
+experiment_name: "efficientnetv2_s_transfer_learning"
+seed: 42
+
+audio:
+  sample_rate: 22050
+  chunk_duration: 5.0
+  n_fft: 1024
+  hop_length: 512
+  n_mels: 128
+  in_channels: 1  # 1-channel adapted or 3-channel repeat
+
+augmentation:
+  use_waveform_aug: true
+  time_shift_max_ratio: 0.2
+  noise_level: 0.005
+  use_specaugment: true
+  freq_mask_param: 16
+  time_mask_param: 32
+  num_freq_masks: 2
+  num_time_masks: 2
+
+model:
+  name: "InsectEfficientNetV2"
+  pretrained: true
+  num_classes: 40
+  dropout_rate: 0.3
+  use_temperature: true
+
+training:
+  batch_size: 16
+  epochs: 20
+  lr_backbone: 0.0001
+  lr_head: 0.001
+  weight_decay: 0.0001
+  scheduler: "cosine"
+  early_stopping_patience: 6
+  checkpoint_dir: "checkpoints"
